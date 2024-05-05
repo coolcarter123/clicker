@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body onload="startGame()">
+    <div id="game"></div>
+    <button onclick="restartGame()">Restart</button>
+    <script>
+      function startGame() {
+        var game = document.getElementById("game");
+        var player = { x: 0, y: 0 };
+        var intervalId = setInterval(function() {
+          player.y++;
+          game.innerHTML = "Player's position: (" + player.x + ", " + player.y + ")";
+          if (player.y > 10) {
+            clearInterval(intervalId);
+            game.innerHTML += "<br>Game over!";
+          }
+        }, 1000);
+      }
+      function restartGame() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
